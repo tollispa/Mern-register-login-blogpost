@@ -47,12 +47,20 @@ const Login = () => {
     }, [password === ""])
 
     return (
-<div className="w-full h-screen ">
+<div className="w-full h-screen relative ">
+    
+    <div className="absolute h-screen w-[20%] right-20 top-0 hidden sm:block">
+        <img className=""src="https://image.freepik.com/vecteurs-libre/illustration-du-concept-connexion_114360-739.jpg" alt="/"/>
+</div>
+<div className="absolute h-screen w-[20%] left-20 top-0 hidden sm:block">
+        <img src="https://th.bing.com/th/id/R.b9722388028d85a624ff4737521a3d21?rik=NkGfsmffoBlPdw&riu=http%3a%2f%2f24yj1c3qu73u1jxvnd3fmwt9-wpengine.netdna-ssl.com%2fwp-content%2fuploads%2f2021%2f05%2fcomputer-signing-tenancy-agreement-kraked.png&ehk=R3myf3NhC7euw8mNVrHCDb7u2DfwhXffHXe1aMHWpKw%3d&risl=&pid=ImgRaw&r=0" alt="/"/>
+</div>
     <h1 className="">
         {header}
     </h1>
-    
+        
         <div className="flex flex-col items-center">
+          
     <TextField 
     value={username}
     className="max-w-[200px] m-1"
@@ -68,6 +76,10 @@ const Login = () => {
     onClick={login}>Login</Button>
     <p className="text-red-500">{errMsg}</p>
     <p>Don't have an account? Go to <Link to="/register">Register</Link> </p>
+    </div>
+    <div className="w-full h-screen block sm:hidden">   
+    <img className="" src="https://th.bing.com/th/id/R.b9722388028d85a624ff4737521a3d21?rik=NkGfsmffoBlPdw&riu=http%3a%2f%2f24yj1c3qu73u1jxvnd3fmwt9-wpengine.netdna-ssl.com%2fwp-content%2fuploads%2f2021%2f05%2fcomputer-signing-tenancy-agreement-kraked.png&ehk=R3myf3NhC7euw8mNVrHCDb7u2DfwhXffHXe1aMHWpKw%3d&risl=&pid=ImgRaw&r=0" alt="/"/>
+    <img src="https://image.freepik.com/vecteurs-libre/illustration-du-concept-connexion_114360-739.jpg" alt="/"/>
     </div>
     
 
