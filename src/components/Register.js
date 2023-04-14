@@ -38,7 +38,13 @@ export const Register = () => {
     return (
   
     
-<div className="flex flex-col w-full h-screen items-center">
+<div className="flex flex-col relative w-full h-screen items-center">
+<div className="absolute h-screen w-[20%] right-20 top-0 hidden sm:block">
+        <img className=""src="https://ultimateqa.com/wp-content/uploads/2020/07/banner_img_2-1.png" alt="/"/>
+</div>
+<div className="absolute h-screen w-[20%] left-20 top-0 hidden sm:block">
+        <img src="https://media.istockphoto.com/vectors/young-people-students-characters-with-dialog-speech-bubbles-chatting-vector-id1128025473?k=6&m=1128025473&s=170667a&w=0&h=TPfb0cqkR64Z68_RMFAJbUerb10NrEltPy04cwlx5j8=" alt="/"/>
+</div>
     <h1>Register</h1>
 
   <TextField 
@@ -57,7 +63,14 @@ export const Register = () => {
   >Register</Button>
   <p className="text-red-500">{errMsg}</p>
   <p>Already have an account? Go to <Link to="/login">Login</Link> </p>
+  <div className="w-full h-screen block sm:hidden">   
+    <img className="" src="https://ultimateqa.com/wp-content/uploads/2020/07/banner_img_2-1.png" alt="/"/>
+    <img src="https://media.istockphoto.com/vectors/young-people-students-characters-with-dialog-speech-bubbles-chatting-vector-id1128025473?k=6&m=1128025473&s=170667a&w=0&h=TPfb0cqkR64Z68_RMFAJbUerb10NrEltPy04cwlx5j8=" alt="/"/>
+    </div>
+    <div className="h-full w-full  text-black">
+    <p className="absolute bottom-0 left-5">Copyright © 2022 Tollis Papadopoulos. All rights reserved.</p>
 
+    </div>
 </div>
     )
 }
