@@ -15,9 +15,7 @@ const Feed = () => {
     const [loggedInUser, setLoggedInUser] = useState("")
     const [comment, setComment] = useState("")
     const [activeInputField, setActiveInputField] = useState(null);
-    const [disabled, setDisabled] = useState(true)
-    
-    console.log("a", activeInputField)
+   
 
 
    
@@ -99,7 +97,12 @@ const Feed = () => {
           });
       };
       const sendComment = (ID, index, e) => {
-        console.log(ID, comment)
+        axios.post("http://localhost:4000/commentpost", {
+          id: ID,
+          comment: comment
+        }).then((res) => {
+          console.log(res)
+        })
       }
       const reverse = [...posts].reverse()
 
