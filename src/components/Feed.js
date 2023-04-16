@@ -11,10 +11,10 @@ const Feed = () => {
     const [editText, setEditText] = useState("")
     const [postID, setPostID] = useState("")
     const [showText, setShowText] = useState("")
-    const [header, setHeader] = useState("")
+    
     const [loggedInUser, setLoggedInUser] = useState("")
     const [comment, setComment] = useState("")
-    const [activeInputField, setActiveInputField] = useState(null);
+   
    
 
 
@@ -111,7 +111,7 @@ const Feed = () => {
     return (
         <div className="flex relative flex-col w-full h-screen items-center">
          <div className="absolute right-10 top-5"> <AllUsers/></div>
-         <h1>{header}</h1>
+        
           <Createpost posts={posts} setPosts={setPosts}/>
           <div  style={{backgroundImage: "url('https://image.freepik.com/free-vector/cartoon-woman-typing-smartphone-sending-message-liking-posts-social-networks-chatting-with-friends-with-emoji-heart-icons-character_208581-28.jpg')"}} className="hidden sm:block bg-cover bg-center w-[350px] h-[350px] absolute left-10 top-20">
 
@@ -142,8 +142,7 @@ const Feed = () => {
                   
                  
                   
-                  onFocus={() => setActiveInputField(index)}
-                  onBlur={() => setActiveInputField(null)}
+                 
                 
                   onChange={e => setComment(e.target.value)}
                   className="m-1"label="Write a comment"/><br/>
