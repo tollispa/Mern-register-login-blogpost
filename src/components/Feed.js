@@ -113,7 +113,7 @@ const Feed = () => {
          <div className="absolute right-10 top-5"> <AllUsers/></div>
         
           <Createpost posts={posts} setPosts={setPosts}/>
-          <div  style={{backgroundImage: "url('https://image.freepik.com/free-vector/cartoon-woman-typing-smartphone-sending-message-liking-posts-social-networks-chatting-with-friends-with-emoji-heart-icons-character_208581-28.jpg')"}} className="hidden sm:block bg-cover bg-center w-[350px] h-[350px] absolute left-10 top-20">
+          <div  style={{backgroundImage: "url('https://image.freepik.com/free-vector/cartoon-woman-typing-smartphone-sending-message-liking-posts-social-networks-chatting-with-friends-with-emoji-heart-icons-character_208581-28.jpg')"}} className="hidden sm:block bg-cover bg-center w-[250px] h-[350px] absolute left-10 top-20">
 
           </div>
        
@@ -122,9 +122,10 @@ const Feed = () => {
             
            
             {reverse.map((post, index) => {
-              return <p id={index}className="m-2 shadow-lg p-6 rounded min-w-[300px] relative" key={post._id}>
+              return <p id={index}className="m-3 shadow-lg p-6 rounded w-full block relative sm:w-[400px]" key={post._id}>
                   <Link to={`/feed/${post.userId}`}className="no-underline text-black font-bold text-l">{post.username.toUpperCase()}</Link>   <br/> {" "}{post.post} 
-                    <br/><span className="absolute left-10 font-bold text-blue-600">
+                    <br/><span className="text-black/30 text-sm">{post.createdAtDate}</span>
+                    <span className="absolute left-10 font-bold text-blue-600">
                    
                       <button title={post.likes.join(", ")}
                     onClick={() => likeButton(post._id)}>👍</button> {post.likes.length}</span>
