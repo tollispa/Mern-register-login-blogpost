@@ -3,7 +3,7 @@ const createPost = express.Router();
 const user = require("./User")
 const mongoose = require("mongoose");
 const Joi = require("joi")
-
+const formattedDate = require("../datevariable")
 const schema = Joi.object({
     
   
@@ -36,8 +36,13 @@ const postSchema = new mongoose.Schema({
         username: {
             type: String,
             required: true
-        }
-    }]
+        },
+       
+    }],
+    createdAtDate: {
+        type: String,
+        required: true
+    }
 },{ strict: "throw" })
 const Post = mongoose.model('Post', postSchema);
 
@@ -59,8 +64,9 @@ createPost.post("/", async (req, res) => {
    const createPostData = {
     userId: userID,
     username: findName[0].username,
+    post: post,
+    createdAtDate: formattedDate
   
-    post: post
   };
   
   const createPost = new Post(createPostData);
