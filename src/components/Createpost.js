@@ -5,16 +5,16 @@ import axios from "axios"
 
 
 const Createpost = (props) => {
-    const [title, setTitle] = useState("")
+    
     const [post, setPost] = useState("")
-    console.log("Ny", props.posts)
+   
    
 const addPost = () => {
     axios.post("http://localhost:4000/createpost", {
        
         post: post
     }).then((res) => {
-        setTitle("")
+        
         setPost("")
        console.log(res)
        return axios.get("http://localhost:4000/getposts")
