@@ -75,7 +75,7 @@ createPost.post("/", async (req, res) => {
        
         await createPost.save()
         res.send({message: "Post created!"})
-        console.log("Created")
+        
     } catch (err) {
         res.status(400).send(err)
     }
