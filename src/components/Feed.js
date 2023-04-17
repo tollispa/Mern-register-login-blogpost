@@ -15,7 +15,7 @@ const Feed = () => {
     
     const [loggedInUser, setLoggedInUser] = useState("")
     const [comment, setComment] = useState("")
-    const [commentSection, setCommentSection] = useState(false)
+    const [commentSection, setCommentSection] = useState(true)
    
    
 
