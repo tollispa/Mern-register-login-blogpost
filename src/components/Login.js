@@ -32,7 +32,7 @@ const Login = () => {
             if(username === "" || password === "" ){
                 return setErrMsg("Please fill the required fields!")
             }
-            setErrMsg(err.response.data.message)
+            setErrMsg(err.response.data.message + "! Try again!")
         })
     }
     useEffect(() => {
@@ -67,6 +67,7 @@ const Login = () => {
     onChange={e => setUsername(e.target.value)}
     id="outlined-basic" label="Username" variant="outlined" />
     <TextField 
+    type="password"
     value={password}
     className="max-w-[200px] m-1"
     onChange={e => setPassword(e.target.value)}
