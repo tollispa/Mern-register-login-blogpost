@@ -35,7 +35,8 @@ const addPost = () => {
     return (
         <div className="w-full flex flex-col items-center">
           
-  
+          
+
   <TextField 
     onChange={e => setPost(e.target.value)}
     value={post}

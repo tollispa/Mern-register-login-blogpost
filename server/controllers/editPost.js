@@ -1,6 +1,6 @@
 const express = require("express");
 const editPost = express.Router();
-const {Post} = require("./createPost")
+const Post = require("../schemas/post")
 
 editPost.patch("/", async (req, res) => {
  const userID = req.session.userId

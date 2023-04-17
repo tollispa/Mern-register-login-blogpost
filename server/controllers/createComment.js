@@ -1,7 +1,7 @@
 const express = require("express");
 const createComment = express.Router();
-const user = require("./User")
-const {Post} = require("./createPost")
+const user = require("../schemas/User")
+const Post = require("../schemas/post")
 
 
 createComment.post("/", async (req, res) => {
