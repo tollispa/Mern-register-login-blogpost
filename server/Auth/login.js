@@ -1,11 +1,11 @@
 const express = require("express");
 const login = express.Router();
-const user = require("./User")
+const user = require("../schemas/User")
 
 login.post("/", async (req, res) => {
   const name = req.body.username.toLowerCase()
   const pass = req.body.password
-  console.log(name, pass)
+  
     if(req.session.userId) {
       return res.status(404).send({message: "Someone is already logged in!"})
     }

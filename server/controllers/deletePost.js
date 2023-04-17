@@ -1,6 +1,6 @@
 const express = require("express");
 const deletePost = express.Router();
-const {Post} = require("./createPost")
+const Post = require("../schemas/post")
 
 deletePost.delete("/", async (req, res) => {
     const itemID = req.body.id
