@@ -8,12 +8,15 @@ import {useNavigate} from "react-router-dom"
 
 function MyNav() {
   const [avatarPic, setAvatarPic] = useState("")
+  const [toggleDropDown, setToggleDropDown] = useState("none")
+  const [toggleLogin, setToggleLogin] = useState("block")
+
   const navigate = useNavigate()
   const logout = () => {
       axios.get("http://localhost:4000/logout")
       .then((res) => {
         console.log(res)
-        navigate("/")
+        navigate("/login")
       })
   }
 
@@ -23,7 +26,10 @@ function MyNav() {
       if(res.data === "") {
        setAvatarPic("https://villagesonmacarthur.com/wp-content/uploads/2020/12/Blank-Avatar.png")
       }
-    }).catch((err) => console.log(err))
+      setToggleDropDown("block")
+      setToggleLogin("none")
+     
+    }).catch((err) => setAvatarPic("https://www.wiliving.de/wp-content/uploads/2016/07/Icon_Komfortabel-wohnen.png"))
 }, [])
   return (
     <Navbar className='relative' bg="light" expand="lg">
@@ -32,18 +38,19 @@ function MyNav() {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="/login">Login</Nav.Link>
+            <Nav.Link href="/login" style={{display: `${toggleLogin}`}}>Login</Nav.Link>
             
             <Nav.Link href="/feed">Feed</Nav.Link>
            
             
-            <NavDropdown title={<img className='w-full h-[25px] inline-block rounded-full object-contain' src={`${avatarPic}`} alt=""/>} id="basic-nav-dropdown">
+            <NavDropdown style={{display: `${toggleDropDown}`}}
+            title={<img className='w-full h-[25px] inline-block rounded-full object-contain' src={`${avatarPic}`} alt=""/>} id="basic-nav-dropdown">
 
 
               
               <NavDropdown.Item href="#action/3.1">Settings</NavDropdown.Item>
-              <NavDropdown.Item href="/add-item">
-                Add Item
+              <NavDropdown.Item href="/avatars">
+                Select Avatar
               </NavDropdown.Item>
              
               <NavDropdown.Item >
