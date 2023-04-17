@@ -6,15 +6,19 @@ import {Link} from "react-router-dom"
 export const Register = () => {
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
+    const [repeatPassword, setRepeatPassword] = useState("")
     const [errMsg, setErrMsg] = useState("")
 
     useEffect(() => {
     
       setErrMsg("")
       
-    },[username, password])
+    },[username, password, repeatPassword])
 
     const registerUser = () => {
+      if (password !== repeatPassword){
+        return setErrMsg("Passwords doesn't match! Try again!")
+      }
         
         axios.post("http://localhost:4000/register", {
           username: username,
@@ -23,6 +27,7 @@ export const Register = () => {
         
           setUsername("")
           setPassword("")
+          setRepeatPassword("")
           alert(res.data.message)
           console.log(res)
         }).catch((err) => {
@@ -54,9 +59,16 @@ export const Register = () => {
   variant="outlined" label="Username"/>
   <TextField 
     onChange={e => setPassword(e.target.value)}
+    type="password"
     value={password}
   className="w-[200px] mt-2"
   variant="outlined" label="Password"/>
+    <TextField 
+    onChange={e => setRepeatPassword(e.target.value)}
+    value={repeatPassword}
+    type="password"
+  className="w-[200px] mt-2"
+  variant="outlined" label="Confirm password"/>
   <Button
   onClick={registerUser}
   className="bg-black text-white w-[200px] mt-2"
