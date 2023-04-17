@@ -14,6 +14,7 @@ const getUsers = require("./controllers/getUsers")
 const database = require("./database/db")
 const createComment = require("./controllers/createComment")
 const getAvatarUrls = require("./controllers/getAvatarUrls")
+const selectAvatar = require("./controllers/selectAvatar")
 
 const app = express()
 
@@ -57,6 +58,8 @@ app.use("/getsinglepost", getSinglePost)
 app.use("/users", getUsers)
 app.use("/commentpost", createComment)
 app.use("/avatars",getAvatarUrls)
+app.use("/selectavatar", selectAvatar)
+
 
 
 
