@@ -10,6 +10,7 @@ import Home from "./components/Home"
 import Createpost from "./components/Createpost";
 import Feed from "./components/Feed";
 import SingleFeed from "./components/SingleFeed";
+import Avatars from "./components/Avatars";
 
 
 
@@ -30,6 +31,8 @@ function App() {
     <Route path="/create-post" element={<Createpost/>}/>
     <Route path="/feed" element={<Feed/>}/>
     <Route path="/feed/:id" element={<SingleFeed/>}/>
+    <Route path="/avatars" element={<Avatars/>}/>
+
 
 
 
