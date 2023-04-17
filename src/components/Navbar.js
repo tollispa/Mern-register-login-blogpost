@@ -25,7 +25,10 @@ function MyNav() {
     .then((res) => {
       if(res.data === "") {
        setAvatarPic("https://villagesonmacarthur.com/wp-content/uploads/2020/12/Blank-Avatar.png")
+      }else {
+        setAvatarPic(res.data)
       }
+      console.log(res)
       setToggleDropDown("block")
       setToggleLogin("none")
      
