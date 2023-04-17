@@ -2,18 +2,21 @@ import axios from "axios"
 import {useEffect, useState} from "react"
 import {TextField, Button} from "@mui/material"
 import {Link} from "react-router-dom"
+import {useNavigate} from "react-router-dom"
 
 const Login = () => {
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
     const [header, setHeader] = useState("Login")
     const [errMsg, setErrMsg] = useState("")
+    const navigate = useNavigate()
 
     useEffect(() => {
     
         setErrMsg("")
         
       },[username, password])
+     
   
     const login = () => {
        
@@ -26,6 +29,7 @@ const Login = () => {
            
             setPassword("")
             setUsername("")
+            navigate("/")
             
             
         }).catch((err)=> {
@@ -39,8 +43,9 @@ const Login = () => {
         axios.get("http://localhost:4000/isLoggedIn")
         .then((res) => {
             if(res.status === 200) {
-                const name = res.data
-                setHeader(`Welcome, ${name}!`)
+                
+                setHeader(`You are logged in!`)
+               
             }
             console.log(res)
         }).catch((err) => console.log(err))
