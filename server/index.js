@@ -1,11 +1,8 @@
 const express = require("express")
-
-
 const cors = require("cors")
 const register = require("./Auth/register")
 const session = require("express-session")
 const login = require("./Auth/login")
-
 const logout = require("./Auth/logout")
 const {createPost} = require("./Auth/createPost")
 const getPosts = require("./Auth/getPosts")
@@ -16,7 +13,6 @@ const getSinglePost = require("./Auth/getSinglePost")
 const getUsers = require("./Auth/getUsers")
 const database = require("./database/db")
 const createComment = require("./Auth/createComment")
-
 
 const app = express()
 
@@ -48,14 +44,6 @@ app.use(cors({
     credentials: true
 }));
 
-
-
-
-
-
-  
-
-
 app.use("/register", register)
 app.use("/login", login)
 app.use("/logout", logout)
@@ -80,3 +68,14 @@ app.get("/isLoggedIn", (req, res) => {
 app.listen(4000, () => {
     console.log("Server started on port 4000")
 })
+
+
+
+
+
+  
+
+
+
+
+
