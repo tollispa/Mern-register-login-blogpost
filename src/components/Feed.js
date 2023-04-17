@@ -6,6 +6,7 @@ import {TextField, Button} from "@mui/material"
 import {Link} from "react-router-dom"
 import AllUsers from "./AllUsers";
 const Feed = () => {
+
     const [posts, setPosts] = useState([])
     const [showModal, setShowModal] = useState(false);
     const [editText, setEditText] = useState("")
@@ -14,6 +15,7 @@ const Feed = () => {
     
     const [loggedInUser, setLoggedInUser] = useState("")
     const [comment, setComment] = useState("")
+    const [commentSection, setCommentSection] = useState(false)
    
    
 
@@ -102,11 +104,17 @@ const Feed = () => {
           comment: comment
         }).then((res) => {
           console.log(res)
+          alert("Comment sent!")
+          setTimeout(() => {
+            window.location.reload()
+          },250)
         })
       }
       const reverse = [...posts].reverse()
 
-  
+  const showComments = () => {
+   setCommentSection(!commentSection)
+  }
     
     return (
         <div className="flex relative flex-col w-full h-screen items-center">
@@ -139,20 +147,30 @@ const Feed = () => {
                     </span> 
                     
                    <br/>
+                   <button className="text-blue-500"
+                  onClick={showComments}>Comments({post.comments.length})</button>
+                 {commentSection ? null : 
+                  <span onClick={() => showComments(post.comments)}
+                 className="cursor-pointer text-gray-500"> <br/>{post.comments.map((comment, index) => (
+                <span key={index}><span className="font-bold text-black">{comment.username}:</span> {comment.comment} <br/></span>
+                ))}</span>
+                 } <br/>
                   <TextField 
-                  
-                 
-                  
-                 
-                
                   onChange={e => setComment(e.target.value)}
                   className="m-1"label="Write a comment"/><br/>
                   <button 
                   onClick={() =>  sendComment(post._id, index)}
                   className="text-2xl absolute bottom-0 right-5">➡️</button>
                  
+                 
                 </p>
+                
             })}
+                  
+                 
+                  
+                 
+                  
             
             <Modal show={showModal} onHide={handleClose}>
   <Modal.Header closeButton>
