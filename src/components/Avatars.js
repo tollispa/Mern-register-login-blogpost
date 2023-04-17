@@ -12,7 +12,11 @@ const Avatars = () => {
     },[])
 
     const selectAvatar = (URL) => {
-        console.log(URL)
+        axios.patch("http://localhost:4000/selectavatar", {
+          url: URL
+        }).then((res) => {
+          console.log(res)
+        }).catch((err) => console.log(err))
     }
     return (
         <div className="flex flex-col items-center">
