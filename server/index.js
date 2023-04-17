@@ -13,6 +13,7 @@ const getSinglePost = require("./controllers/getSinglePost")
 const getUsers = require("./controllers/getUsers")
 const database = require("./database/db")
 const createComment = require("./controllers/createComment")
+const getAvatarUrls = require("./controllers/getAvatarUrls")
 
 const app = express()
 
@@ -55,6 +56,8 @@ app.use("/editpost", editPost)
 app.use("/getsinglepost", getSinglePost)
 app.use("/users", getUsers)
 app.use("/commentpost", createComment)
+app.use("/avatars",getAvatarUrls)
+
 
 
 
