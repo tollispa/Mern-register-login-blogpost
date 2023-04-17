@@ -18,7 +18,7 @@ login.post("/", async (req, res) => {
       }
       req.session.userId = result[0].id;
       req.session.username = result[0].username
-      res.send({message: `${result[0].username}`});
+      res.send(result);
       
     } catch (err) {
       console.log(err);
