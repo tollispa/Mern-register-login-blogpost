@@ -1,7 +1,7 @@
 const express = require("express");
 const createPost = express.Router();
-const user = require("./User")
-const mongoose = require("mongoose");
+const user = require("../schemas/User")
+const Post = require("../schemas/post")
 const Joi = require("joi")
 const formattedDate = require("../datevariable")
 const schema = Joi.object({
@@ -10,41 +10,7 @@ const schema = Joi.object({
     post: Joi.string().required()
 })
 
-const postSchema = new mongoose.Schema({
-    userId: {
-        type: String,
-        required: true
-    },
-    username: {
-        type: String,
-        required: true
-    },
-    
-    post: {
-        type: String,
-        required: true
-    },
-    likes: {
-        type: Array,
-        default: []
-    },
-    comments: [{
-        comment: {
-            type: String,
-            required: true
-        },
-        username: {
-            type: String,
-            required: true
-        },
-       
-    }],
-    createdAtDate: {
-        type: String,
-        required: true
-    }
-},{ strict: "throw" })
-const Post = mongoose.model('Post', postSchema);
+
 
 createPost.post("/", async (req, res) => {
     const userID = req.session.userId
@@ -60,7 +26,7 @@ createPost.post("/", async (req, res) => {
     }
 
    const findName = await user.find({_id: `${userID}`}).lean().select('username').exec()
-   console.log(findName)
+   
    const createPostData = {
     userId: userID,
     username: findName[0].username,
@@ -81,4 +47,4 @@ createPost.post("/", async (req, res) => {
     }
 })
 
-module.exports = {createPost, Post }
+module.exports = {createPost }

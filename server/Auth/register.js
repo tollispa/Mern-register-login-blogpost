@@ -1,6 +1,6 @@
 const express = require("express");
 const register = express.Router();
-const user = require("./User");
+const user = require("../schemas/User");
 const Joi = require('joi');
 
 const schema = Joi.object({

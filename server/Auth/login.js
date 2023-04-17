@@ -1,6 +1,6 @@
 const express = require("express");
 const login = express.Router();
-const user = require("./User")
+const user = require("../schemas/User")
 
 login.post("/", async (req, res) => {
   const name = req.body.username.toLowerCase()
