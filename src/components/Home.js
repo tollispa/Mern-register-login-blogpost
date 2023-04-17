@@ -49,10 +49,10 @@ const Home = () => {
            
           </div>
           <div className="absolute top-0 h-screen w-[25%] hidden sm:block border-r shadow-lg bg-slate-50 border-gray-700 bg">
-            <h2 className="font-bold text-gray-1000 p-2 ">About us</h2>
+            <h2 className="font-bold text-gray-1000 p-2 ">About this project</h2>
             <p className="font-bold p-2 sm:text-xl text-2xl text-blue-500">This is a fullstack project where you can do following, </p>
-            <p className="font-bold p-2 text-blue-500">Register, Login, Create post, Like a post, edit and delete your post</p>
-            <Link className=" m-2 bg-blue-500 p-2 rounded text-white no-underline"to="/login">Get started
+            <p className="font-bold p-2 text-blue-500">Register, Login, Create post, Like a post, comment, edit and delete your post</p>
+            <Link className=" m-2 bg-blue-500 p-2 rounded text-white no-underline"to="/login">Try it out? Click here
             
             </Link> <br/>
             <div className="p-3 absolute bottom-40 gap-2 align-center items-center justify-center">
