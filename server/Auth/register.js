@@ -26,7 +26,8 @@ register.post("/", async (req, res) => {
     
     const createUser = new user({
             username: username,
-            password: password
+            password: password,
+            avatar: "",
         });
         const savedUser = await createUser.save();
         res.send({message: "User created!"})
