@@ -16,7 +16,7 @@ const AllUsers = () => {
     <div className="hidden border-2 relative border-black rounded p-8 text-left font-bold sm:block">
       
         {users.length === 0 ? <p>Database isn't running yet.</p> : users.map((user) => {
-            return <p className="m-2"><Link className=""to={`/feed/${user._id}`}>{user.username.toUpperCase()}</Link></p>
+            return <p key={user._id} className="m-2"><Link className=""to={`/feed/${user._id}`}>{user.username.toUpperCase()}</Link></p>
         })}
     </div>
  )
