@@ -68,7 +68,7 @@ app.get("/isLoggedIn", (req, res) => {
     if (!req.session.userId) {
         res.sendStatus(404)
     }else {
-        res.send(req.session.avatar)
+        res.send(req.session.username)
     }
 })
 app.listen(4000, () => {

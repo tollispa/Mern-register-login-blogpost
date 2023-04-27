@@ -17,7 +17,7 @@ login.post("/", async (req, res) => {
         return res.status(400).send({message: "Wrong combination"})   
       }
       req.session.userId = result[0].id;
-      req.session.avatar = result[0].avatar
+      req.session.username = result[0].username
       res.send({message: "Login success"});
       
     } catch (err) {
