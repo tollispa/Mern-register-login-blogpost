@@ -120,7 +120,9 @@ const Feed = () => {
         <div className="flex relative flex-col w-full h-screen items-center">
          <div className="absolute right-10 top-5"> <AllUsers/></div>
         
+          {loggedInUser === "" ? <p className=" m-2">Oops you are not logged in yet! <br/>Go to <Link to="/login">Login</Link> to be able to create posts!</p> :
           <Createpost posts={posts} setPosts={setPosts}/>
+          }
           <div  style={{backgroundImage: "url('https://image.freepik.com/free-vector/cartoon-woman-typing-smartphone-sending-message-liking-posts-social-networks-chatting-with-friends-with-emoji-heart-icons-character_208581-28.jpg')"}} className="hidden sm:block bg-cover bg-center w-[250px] h-[350px] absolute left-10 top-20">
 
           </div>
